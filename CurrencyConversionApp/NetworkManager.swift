@@ -9,11 +9,14 @@ import Foundation
 
 final class NetworkManager {
     
+    static let key = "key"
+    /// Use key from https://rapidapi.com/apininjas/api/currency-converter-by-api-ninjas/
+    
     static func loadRate(with firstCode: String, secondCode: String, completion: @escaping (Result<DataModel, Error>) -> Void)  {
         
         let headers = [
             "x-rapidapi-host": "currency-converter-by-api-ninjas.p.rapidapi.com",
-            "x-rapidapi-key": "ef06c2a322mshbf430dd4f199d19p17f5adjsn53ae597b824e"
+            "x-rapidapi-key": key
         ]
         
         let request = NSMutableURLRequest(url: NSURL(string: "https://currency-converter-by-api-ninjas.p.rapidapi.com/v1/convertcurrency?have=\(firstCode)&want=\(secondCode)&amount=100")! as URL,
